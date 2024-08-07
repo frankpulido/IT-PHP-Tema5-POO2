@@ -1,17 +1,47 @@
 <?php
-class Rectangle extends Shape { // Shape es una clase "abstract", así como el método "area()" definido en ella, razón por la que su implementación en clases CHILD es obligatoria.
+class Rectangle implements Shape { // Shape es una INTERFACE.
+    
+    // Atributos
+    protected $base;
+    protected $height;
+    private $name = "Rectángulo";
 
-    // Atributo adicional... El resto los hereda de la Clase Shape (parent)...
-    protected $name;
-
-    public function __construct($base, $height, $name = 'Rectángulo') {
-        Shape::__construct($base, $height);
-        $this->name = $name; // No necesitamos getters ni setters para este atributo
+    public function __construct($base, $height) {
+        $this->base = $base;
+        $this->height = $height;
     }
 
+    // Getters
+
+    public function getBase() {
+        return $this->base;
+    }
+
+    public function getHeight() {
+        return $this->height;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    // Setters
+
+    public function setBase($base) {
+        $this->base = $base;
+    }
+
+    public function setHeight($height) {
+        $this->height = $height;
+    }
+
+    // Métodos de implementación obligatoria (implements Shape)
+
+    public function how() {
+        return "El área del " . __CLASS__ . " se calcula multiplicando la base (" . $this->base . ") por la altura (" . $this->height . "). Área = ";
+    }
     public function area() {
-        echo "El área del " . $this->name . " es el producto de su base por su altura.\n";
-        echo $this->base . " * " . $this->height . " = " . $this->base * $this->height;
+        return ($this->base * $this->height);
     }
 }
 ?>

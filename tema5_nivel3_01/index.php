@@ -32,41 +32,10 @@ echo "RECORDATORIO clase anterior :\n";
 echo "- Si la base y la altura miden igual, el área del triángulo será siempre la mitad que la del rectángulo, independientemente de que el triángulo tenga o no un ángulo recto.\n";
 echo "- Dibuja el triángulo en el interior del rectángulo y sombrea su área... Lo ves?...(Pista : Divide el rectángulo en 2 partes en el punto donde intersecta el vertice no común del triángulo).\n\n";
 
-do {
-    echo "\nEscoge la figura cuya área desees calcular :\n[1] Triángulo.\n[2] Rectángulo.\n[3] Círculo.\n[0] Salir del programa.\n";
-    $opcion = readline();
-    echo "\n";
-    if ($opcion == 1) {
-        $base = (float) readline("Por favor, indíquenos la base : ");
-        $height = (float) readline("Por favor, indíquenos la altura : ");
-        $triangulo = new Triangle ($base, $height);
-        $triangulo->area();
-        echo "\n";
-    } elseif ($opcion == 2) {
-        $base = (float) readline("Por favor, indíquenos la base : ");
-        $height = (float) readline("Por favor, indíquenos la altura : ");
-        $rectangulo = new Rectangle ($base, $height);
-        $rectangulo->area();
-        echo "\n";
-    } elseif ($opcion == 3) {
-        $radius = (float) readline("Por favor, indíquenos el radio del círculo : ");
-        $circle = new Circle ($radius);
-        $circle->area();
-        echo "\n";
-    } elseif ($opcion == 0) {
-        echo "Esperamos que le haya gustado la aplicación. Cerramos sesión de usuario.\n***IMPORTANTE*** Próximamente desarrollaremos una aplicación para calcular el área de polígonos de lados iguales por lo que pueden ser inscritos en una circunferencia intersectada por sus vértices.";
-        echo "\n";
-    } else {
-        echo "Debe seleccionar una opción válida : 1 al 3. Para salir de la aplicación : 0.";
-        echo "\n";
-    }
-} while ($opcion != 0);
-
-$opcion = -1; // Debemos entrar en un nuevo loop
-echo "\nHagámoslo más interesante : almacenemos todos los objetos de las clases CHILD de la clase parent SHAPE en un Array y calculemos luego las áreas.\n";
+echo "\nHagámoslo más interesante esta vez : almacenemos todos los objetos en un Array y calculemos luego las áreas. Hemos cambiado la relación de herencia (child extends parent) por una interface (implements).\n";
 
 do {
-    echo "\nEscoge la figura cuya área desees calcular :\n[1] Triángulo.\n[2] Rectángulo.\n[3] Círculo.\n[0] Salir.\n";
+    echo "\nEscoge la figura cuya área desees calcular :\n[1] Triángulo.\n[2] Rectángulo.\n[3] Círculo.\n[0] Salir (y ver resultados).\n";
     $opcion = readline();
     echo "\n";
     switch ($opcion) {
@@ -104,7 +73,8 @@ do {
 
 if (count($shapes) > 0) {
     foreach($shapes as $shape) {
-        $shape->area();
+        echo $shape->getName() . " : " . $shape->how();
+        echo $shape->area();
         echo "\n\n";
     }
 } else {

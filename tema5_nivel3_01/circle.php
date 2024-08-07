@@ -1,12 +1,11 @@
 <?php
-class Circle extends Shape { // Shape es una clase "abstract", así como el método "area()" definido en ella, razón por la que su implementación en clases CHILD es obligatoria.
+class Circle implements Shape { // Shape es una INTERFACE.
     
-    // Atributos adicionales... El resto los hereda de la Clase Shape (parent)...
-    protected $name = "Circle";
+    // Atributos
     protected $radius;
+    private $name = "Círculo";
 
-    public function __construct($radius, $name = 'Circle') { // No usamos $base ni tampoco $height. Crearemos métodos setter y getter para el atributo $radius
-        $this->name = $name; // No necesitamos getters ni setters para este atributo
+    public function __construct($radius) {
         $this->radius = $radius;
     }
 
@@ -16,15 +15,24 @@ class Circle extends Shape { // Shape es una clase "abstract", así como el mét
         return $this->radius;
     }
 
+    public function getName() {
+        return $this->name;
+    }
+
     // Setter
 
     public function setRadius($radius) {
         $this->radius = $radius;
     }
 
+    // Funciones de implementación obligatoria
+
+    public function how() {
+        return "El área del " . __CLASS__ . " se calcula multiplicando el número PI (3,1416) por el cuadrado del radio (" . $this->radius . ") . Área = ";
+    }
+
     public function area () {
-        echo "El área del " . $this->name . " es el producto del número PI por el cuadrado del radio.\n";
-        echo "PI (3,1416) * " . $this->radius . "^2 = " . (pow($this->radius,2) * pi());
+        return (pow($this->radius,2) * pi());
     }
 }
 ?>

@@ -1,17 +1,47 @@
 <?php
-class Triangle extends Shape { // Shape es una clase "abstract", así como el método "area()" definido en ella, razón por la que su implementación en clases CHILD es obligatoria.
+class Triangle implements Shape { // Shape es una INTERFACE.
 
-    // Atributo adicional... El resto los hereda de la Clase Shape (parent)...
-    protected $name = "Triángulo";
+    // Atributos
+    protected $base;
+    protected $height;
+    private $name = "Triángulo";
 
-    public function __construct($base, $height, $name = 'Triángulo') {
-        Shape::__construct($base, $height);
-        $this->name = $name; // No necesitamos getters ni setters para este atributo
+    public function __construct($base, $height) {
+        $this->base = $base;
+        $this->height = $height;
     }
 
+    // Getters
+
+    public function getBase() {
+        return $this->base;
+    }
+
+    public function getHeight() {
+        return $this->height;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    // Setters
+
+    public function setBase($base) {
+        $this->base = $base;
+    }
+
+    public function setHeight($height) {
+        $this->height = $height;
+    }
+
+    // Funciones de implementación obligatoria
+
+    public function how() {
+        return "El área del " . __CLASS__ . " se calcula multiplicando la base (" . $this->base . ") por la altura (" . $this->height . ") y dividiendo el resultado por 2. Área = ";
+    }
     public function area () {
-        echo "El área del " . $this->name . " es el producto de su base por su altura dividido entre 2.\n";
-        echo $this->base . " * " . $this->height . " / 2 = " . ($this->base * $this->height) / 2;
+        return ($this->base * $this->height) / 2;
     }
 }
 ?>

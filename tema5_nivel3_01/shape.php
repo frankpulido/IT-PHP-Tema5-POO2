@@ -1,37 +1,9 @@
 <?php
-abstract class Shape { // Obligaré a los CHILD a usar la función area(). Para poder declarar métodos abstract la Clase debe ser abstract.
-    protected $base;
-    protected $height;
+interface Shape { // La implementarán todas las figuras geométricas.
 
-    public function __construct($base, $height) {
-        $this->base = $base;
-        $this->height = $height;
-    }
+// Función ha implementar por cualquier Clase, no existirá una relación de "herencia"
 
-    // Getters
-
-    public function getBase() {
-        return $this->base;
-    }
-
-    public function getHeight() {
-        return $this->height;
-    }
-
-    // Setters
-
-    public function setBase($base) {
-        $this->base = $base;
-    }
-
-    public function setHeight($height) {
-        $this->height = $height;
-    }
-
-
-    // Función área tipo abstract
-
-    abstract function area(); // El método abstract únicamente se declara. Se desarrollara en sus CHILD (implementación obligatoria)
+public function area(); // El método únicamente se declara. Se desarrollara en las clases que implementen Shape (implementación obligatoria)
 
 }
 ?>

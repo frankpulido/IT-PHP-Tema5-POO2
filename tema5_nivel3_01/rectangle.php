@@ -37,10 +37,10 @@ class Rectangle implements Shape { // Shape es una INTERFACE.
 
     // Métodos de implementación obligatoria (implements Shape)
 
-    public function how() {
+    public function how() { // Nos describirá de qué forma se calcula el área de esta forma geométrica
         return "El área del " . __CLASS__ . " se calcula multiplicando la base (" . $this->base . ") por la altura (" . $this->height . "). Área = ";
     }
-    public function area() {
+    public function area() { // Efectúa el cálculo del área tal como lo describe how()
         return ($this->base * $this->height);
     }
 }

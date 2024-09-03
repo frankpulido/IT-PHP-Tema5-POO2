@@ -37,10 +37,10 @@ class Triangle implements Shape { // Shape es una INTERFACE.
 
     // Funciones de implementación obligatoria
 
-    public function how() {
+    public function how() { // Nos describirá de qué forma se calcula el área de esta forma geométrica
         return "El área del " . __CLASS__ . " se calcula multiplicando la base (" . $this->base . ") por la altura (" . $this->height . ") y dividiendo el resultado por 2. Área = ";
     }
-    public function area () {
+    public function area () { // Efectúa el cálculo del área tal como lo describe how()
         return ($this->base * $this->height) / 2;
     }
 }

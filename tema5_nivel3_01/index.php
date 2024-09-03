@@ -35,7 +35,7 @@ echo "- Dibuja el triángulo en el interior del rectángulo y sombrea su área..
 echo "\nHagámoslo más interesante esta vez : almacenemos todos los objetos en un Array y calculemos luego las áreas. Hemos cambiado la relación de herencia (child extends parent) por una interface (implements).\n";
 
 do {
-    echo "\nEscoge la figura cuya área desees calcular :\n[1] Triángulo.\n[2] Rectángulo.\n[3] Círculo.\n[0] Salir (y ver resultados).\n";
+    echo "Deberás indicarnos los parámetros de TODAS las figuras cuya área desees calcular y pulsar \"0\" cuando desees ver los resultados por pantalla :\n[1] Triángulo.\n[2] Rectángulo.\n[3] Círculo.\n[0] Salir (y ver resultados).\n";
     $opcion = readline();
     echo "\n";
     switch ($opcion) {

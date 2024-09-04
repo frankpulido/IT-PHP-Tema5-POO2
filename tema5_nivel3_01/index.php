@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 require "shape.php";
 require "rectangle.php";
 require "triangle.php";
